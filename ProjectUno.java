@@ -6,6 +6,8 @@ public class ProjectUno {
         System.out.println();
         System.out.println();
         E5();
+        System.out.println();
+        E6();
     }
     public static void E3() {
         First_Line();
@@ -58,18 +60,20 @@ public class ProjectUno {
             System.out.println("|");
         }
     }
-    public static int StairAmount = 5;
+    public static final int StairAmount = 2;
     public static void E4() {
         for(int stair = 1; stair <= StairAmount; stair++) {
             Full(stair);
         }
-        System.out.print("******");
-        for(int star = 1; star <= 5*StairAmount; star++) {
-            System.out.print("*");
-        }
-        System.out.print("*");
+        //12, 17, 22
+        BottomLine();
     }
 
+    public static void BottomLine() {
+        for(int star = 1; star <= 5*StairAmount+7; star++) {
+            System.out.print("*");
+        }
+    }
     public static void LeftSpace(int stair) {
         for(int aspace = 1; aspace <= (5*StairAmount-5)-(5*stair-5); aspace++) {
             System.out.print(" ");
@@ -180,6 +184,70 @@ public class ProjectUno {
         }
         for (int dots = 1; dots < line; dots++) {
             System.out.print(".");
+        }
+    }
+    public static final int CONTROLLER = 8;
+    public static void E6() {
+        NeedleTip();
+        TopNeedle();
+        MiddleLine();
+        BottomNeedle();
+        NeedleTip();
+        NeedleBody();
+        TopNeedle();
+        MiddleLine();
+    }
+    public static void NeedleTip() {
+        for (int i = 1; i <= CONTROLLER; i++) {
+            for (int j = 1; j <= CONTROLLER*3; j++) {
+                System.out.print(" ");
+            }
+            System.out.println("||");
+        }
+    }
+    public static void TopNeedle() {
+        for (int line = 0; line < CONTROLLER; line++) {
+            for (int spaces = 1; spaces <= -3*line+(2*CONTROLLER+(CONTROLLER-3)); spaces++) {
+                System.out.print(" ");
+            }
+            System.out.print("__/");
+            for (int colon = 1; colon <= line; colon++) {
+                System.out.print(":::");
+            }
+            System.out.print("||");
+            for (int colon = 1; colon <= line; colon++) {
+                System.out.print(":::");
+            }
+            System.out.println("\\__");
+        }
+    }
+
+    public static void MiddleLine() {
+        System.out.print("|");
+        for (int marks = 1; marks <= CONTROLLER*6; marks++){
+            System.out.print("\"");
+        }
+        System.out.println("|");
+    }
+
+    public static void BottomNeedle() {
+        for (int line = 1; line <= CONTROLLER; line++) {
+            for (int spaces = 1; spaces <= (line-1)*2; spaces++) {
+                System.out.print(" ");
+            }
+            System.out.print("\\_");
+            for (int conething = 1; conething <= -2*line+(3*CONTROLLER+1); conething++) { // 4 13, 3 10, 2 7, 1 6
+                System.out.print("/\\");
+            }
+            System.out.println("_/");
+        }
+    }
+    public static void NeedleBody() {
+        for (int line = 1; line <= CONTROLLER*4; line++) {
+            for (int spaces = 1; spaces <= CONTROLLER*2+(CONTROLLER-3); spaces++) { // 3 6, 4 9, 5 12, 6 15
+                System.out.print(" ");
+            }
+            System.out.println("|%%||%%|");
         }
     }
 }
