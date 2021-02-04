@@ -60,7 +60,7 @@ public class ProjectUno {
             System.out.println("|");
         }
     }
-    public static final int StairAmount = 2;
+    public static final int StairAmount = 5;
     public static void E4() {
         for(int stair = 1; stair <= StairAmount; stair++) {
             Full(stair);
@@ -186,7 +186,7 @@ public class ProjectUno {
             System.out.print(".");
         }
     }
-    public static final int CONTROLLER = 8;
+    public static final int CONTROLLER = 4;
     public static void E6() {
         NeedleTip();
         TopNeedle();
