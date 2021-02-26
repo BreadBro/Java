@@ -26,7 +26,7 @@ class rExercises {
         */
         E2();
         System.out.println();
-        pg368E2();
+        pg368E2(5, 10);
         System.out.println();
         pg386E4();
         System.out.println();
@@ -34,7 +34,7 @@ class rExercises {
         System.out.println();
         E8();
         System.out.println();
-        E10();
+        E10(3);
         System.out.println();
         System.out.println("\033[0;1m" + "\u001b[31m" + "We haven't learned how to do E12 yet. \033[0;0m");
     }
@@ -86,9 +86,9 @@ class rExercises {
             number = number/2;
         }
     }
-    public static void pg368E2() {
+    public static void pg368E2(int num1, int num2) {
         System.out.println("pg368 E2:");
-        int num1 = 5, num2 = 10, gcd = 1;
+        int gcd = 1;
         for(int i = 1; i <= num1 && i <= num2; i++) {
             if(num1%i==0 && num2%i==0) {
                 gcd = i;
@@ -157,10 +157,9 @@ class rExercises {
         }
         System.out.println("Max Position: " + maxpos);
     }
-    public static final int HOPS = 1;
-    public static void E10() {
+    public static void E10(int HOPS) {
         int current = 1;
-        int total = 3 * HOPS+ 1;
+        int total = 3 * HOPS + 1;
         while(current < total) {
             if((current - 1) % 3 == 0) {
                 System.out.println("   " + current);
