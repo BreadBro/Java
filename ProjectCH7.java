@@ -2,7 +2,7 @@ import java.util.*;
 
 public class ProjectCH7 {
     public static void main(String [] args) {
-        E1();
+        //E1();
         System.out.println();
         E5();
     }
@@ -50,10 +50,10 @@ public class ProjectCH7 {
         }
         return CombinedArray;    
     }
-
+    public static final int SIZE = 3;
     public static void E5() {
         //defining variables
-        String[][] board = new String[3][3];
+        String[][] board = new String[SIZE][SIZE];
         String line = "---|----|---";
         int x = 0;
         int i = 0;
@@ -63,7 +63,7 @@ public class ProjectCH7 {
         //first while loop so that it is replayable
         while (i == 0) {
             //explaining rules
-            System.out.println("This is a game of tic tac toe.");
+            System.out.println("\u001b[1mThis is a game of tic tac toe.");
             System.out.println("Each move is an abbreviated form of the position you want to go.");
             System.out.println("TL | TM | TR");
             System.out.println(line);
@@ -71,26 +71,18 @@ public class ProjectCH7 {
             System.out.println(line);
             System.out.println("BL | BM | BR");
             System.out.println("Type the abbreviation to put your marker in that spot.");
-            System.out.println("If you type a location that is invalid, you forfeit your move.");
+            System.out.println("If you type a location that is invalid, you forfeit your move.\033[0m");
             System.out.println();
             //Gives time to read rules. idk why i got do a try catch but it wont work otherwise
+            board = ResetBoard(board);
             try {
                 Thread.sleep(3000);
-            } 
+            }
             catch (InterruptedException e) {
                 System.out.println("time.sleep is superior");
             }
             //resets each variable before starting the game
             x = 0;
-            board[0][0] = " ";
-            board[0][1] = " ";
-            board[0][2] = " ";
-            board[1][0] = " ";
-            board[1][1] = " ";
-            board[1][2] = " ";
-            board[2][0] = " ";
-            board[2][1] = " ";
-            board[2][2] = " ";
             //does first move outside the loop since the number of moves is uneven and doesnt check for win because you cant win in one move
             System.out.println("Player One, please type your move.");
             answ = sc.next();
@@ -180,31 +172,30 @@ public class ProjectCH7 {
 
     public static String[][] CheckMoveP1(String answ, String[][] board) {
         //Lots of if statements to check where P2 wants to go and puts their marker there
-        try {
-            if((answ.contains("TL") || answ.contains("tl")) && board[0][0].contains(" ")) {
-                board[0][0] = "X";
-                return board;
-            }
-            if((answ.contains("TM") || answ.contains("tm")) && board[0][1].contains(" ")) {
-                board[0][1] = "X";
-                return board;
-            }
-            if((answ.contains("TR") || answ.contains("tr")) && board[0][2].contains(" ")) {
-                board[0][2] = "X";
-                return board;
-            }
-            if((answ.contains("ML") || answ.contains("ml")) && board[1][0].contains(" ")) {
-                board[1][0] = "X";
-                return board;
-            }
-            if((answ.contains("MM") || answ.contains("mm")) && board[1][1].contains(" ")) {
-                board[1][1] = "X";
-                return board;
-            }
-            if((answ.contains("MR") || answ.contains("mr")) && board[1][2].contains(" ")) {
-                board[1][2] = "X";
-                return board;
-            }
+        if((answ.contains("TL") || answ.contains("tl")) && board[0][0].contains(" ")) {
+            board[0][0] = "X";
+            return board;
+        }
+        if((answ.contains("TM") || answ.contains("tm")) && board[0][1].contains(" ")) {
+            board[0][1] = "X";
+            return board;
+        }
+        if((answ.contains("TR") || answ.contains("tr")) && board[0][2].contains(" ")) {
+            board[0][2] = "X";
+            return board;
+        }
+        if((answ.contains("ML") || answ.contains("ml")) && board[1][0].contains(" ")) {
+            board[1][0] = "X";
+            return board;
+        }
+        if((answ.contains("MM") || answ.contains("mm")) && board[1][1].contains(" ")) {
+            board[1][1] = "X";
+            return board;
+        }
+        if((answ.contains("MR") || answ.contains("mr")) && board[1][2].contains(" ")) {
+            board[1][2] = "X";
+            return board;
+        }
             if((answ.contains("BL") || answ.contains("bl")) && board[2][0].contains(" ")) {
                 board[2][0] = "X";
                 return board;
@@ -213,62 +204,51 @@ public class ProjectCH7 {
                 board[2][1] = "X";
                 return board;
             }
-            if((answ.contains("BR") || answ.contains("br")) && board[2][2].contains(" ")) {
-                board[2][2] = "X";
-                return board;
-            }
-        }
-        catch(Exception e) {
-            System.out.println("something went wrong");
+        if((answ.contains("BR") || answ.contains("br")) && board[2][2].contains(" ")) {
+            board[2][2] = "X";
+            return board;
         }
         return board;
     }
 
     public static String[][] CheckMoveP2(String answ, String[][] board) {
         //Lots of if statements to check where P2 wants to go and puts their marker there
-        try {
-            if((answ.contains("TL") || answ.contains("tl")) && board[0][0].contains(" ")) {
-                board[0][0] = "O";
-                return board;
-            }
-            if((answ.contains("TM") || answ.contains("tm")) && board[0][1].contains(" ")) {
-                board[0][1] = "O";
-                return board;
-            }
-            if((answ.contains("TR") || answ.contains("tr")) && board[0][2].contains(" ")) {
-                board[0][2] = "O";
-                return board;
-            }
-            if((answ.contains("ML") || answ.contains("ml")) && board[1][0].contains(" ")) {
-                board[1][0] = "O";
-                return board;
-            }
-            if((answ.contains("MM") || answ.contains("mm")) && board[1][1].contains(" ")) {
-                board[1][1] = "O";
-                return board;
-            }
-            if((answ.contains("MR") || answ.contains("mr")) && board[1][2].contains(" ")) {
-                board[1][2] = "O";
-                return board;
-            }
-            if((answ.contains("BL") || answ.contains("bl")) && board[2][0].contains(" ")) {
-                board[2][0] = "O";
-                return board;
-            }
-            if((answ.contains("BM") || answ.contains("bm")) && board[2][1].contains(" ")) {
-                board[2][1] = "O";
-                return board;
-            }
-            if((answ.contains("BR") || answ.contains("br")) && board[2][2].contains(" ")) {
-                board[2][2] = "O";
-                return board;
-            }  
+        if((answ.contains("TL") || answ.contains("tl")) && board[0][0].contains(" ")) {
+            board[0][0] = "O";
+            return board;
         }
-
-        catch(Exception e) {
-            System.out.println("something went wrong");
+        if((answ.contains("TM") || answ.contains("tm")) && board[0][1].contains(" ")) {
+            board[0][1] = "O";
+            return board;
         }
-        
+        if((answ.contains("TR") || answ.contains("tr")) && board[0][2].contains(" ")) {
+            board[0][2] = "O";
+            return board;
+        }
+        if((answ.contains("ML") || answ.contains("ml")) && board[1][0].contains(" ")) {
+            board[1][0] = "O";
+            return board;
+        }
+        if((answ.contains("MM") || answ.contains("mm")) && board[1][1].contains(" ")) {
+            board[1][1] = "O";
+            return board;
+        }
+        if((answ.contains("MR") || answ.contains("mr")) && board[1][2].contains(" ")) {
+            board[1][2] = "O";
+            return board;
+        }
+        if((answ.contains("BL") || answ.contains("bl")) && board[2][0].contains(" ")) {
+            board[2][0] = "O";
+            return board;
+        }
+        if((answ.contains("BM") || answ.contains("bm")) && board[2][1].contains(" ")) {
+            board[2][1] = "O";
+            return board;
+        }
+        if((answ.contains("BR") || answ.contains("br")) && board[2][2].contains(" ")) {
+            board[2][2] = "O";
+            return board;
+        }  
         return board;
     }
 
@@ -348,5 +328,14 @@ public class ProjectCH7 {
         System.out.println(" " + board[1][0] + " | " + board[1][1] + " | " + board[1][2]);
         System.out.println(line);
         System.out.println(" " + board[2][0] + " | " + board[2][1] + " | " + board[2][2]);
+    }
+
+    public static String[][] ResetBoard(String[][] board) {
+        for (int i = 0; i < SIZE; i++) {
+            for (int j = 0; j < SIZE; j++) {
+                board[i][j] = " ";
+            }
+        }
+        return board;
     }
 }
