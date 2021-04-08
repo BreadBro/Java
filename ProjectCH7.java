@@ -2,7 +2,7 @@ import java.util.*;
 
 public class ProjectCH7 {
     public static void main(String [] args) {
-        //E1();
+        E1();
         System.out.println();
         E5();
     }
